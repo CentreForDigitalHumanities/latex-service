@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/686339559.svg)](https://zenodo.org/doi/10.5281/zenodo.10571416)
+
 ## LaTeX Server
 
 This repository contains everything needed to create a small containerised Flask server with a `latexmk` and `texlive` installation.
