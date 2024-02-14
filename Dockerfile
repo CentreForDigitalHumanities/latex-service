@@ -16,11 +16,18 @@ COPY .latexmkrc .latexmkrc
 # Install Python dependencies
 RUN pip3 install -r requirements.txt
 
-# Expose the port on which the Flask server will run
-EXPOSE 5000
+# Install Gunicorn
+RUN pip3 install gunicorn
+
+# Allow the user to specify the port for the server.
+ARG LATEX_PORT=32769
+
+# Expose the port on which theserver will run
+EXPOSE $LATEX_PORT
 
 # Set the environment variable for Flask
 ENV FLASK_APP=app.py
+ENV FLASK_RUN_PORT=$LATEX_PORT
 
 # Shows print logs from our server in the container logs.
 ENV PYTHONUNBUFFERED=1
