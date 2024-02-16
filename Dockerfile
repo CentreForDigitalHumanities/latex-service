@@ -21,6 +21,9 @@ RUN pip3 install -r requirements.txt
 # Install Gunicorn
 RUN pip3 install gunicorn
 
+# Create a directory for Gunicorn logs (production).
+RUN mkdir -p /logs
+
 # Allow the user to specify the port for the server.
 ARG LATEX_PORT=32769
 
