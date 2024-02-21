@@ -24,16 +24,12 @@ RUN pip3 install gunicorn
 # Create a directory for Gunicorn logs (production).
 RUN mkdir -p /logs
 
-# Allow the user to specify the port for the server.
-ARG LATEX_PORT=32769
-
 # Expose the port on which the server will run
-EXPOSE $LATEX_PORT
+EXPOSE 32769
 
 # Set the environment variable for Flask
 ENV FLASK_APP=app.py
-ENV FLASK_RUN_PORT=$LATEX_PORT
-
+ENV FLASK_RUN_PORT=32769
 
 # Run the Flask server
 CMD ["flask", "run", "--host=0.0.0.0"]
