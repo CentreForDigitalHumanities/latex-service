@@ -43,5 +43,5 @@ keywords:
   - pdf generation
 license: BSD-3-Clause
 commit: f70694d4d965cbfb1c974900c62abd42d926beb7
-version: 0.1.0
-date-released: '2024-01-26'
+version: 0.2.0
+date-released: '2024-03-07'
