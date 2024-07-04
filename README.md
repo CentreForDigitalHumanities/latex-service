@@ -23,9 +23,9 @@ A host machine with Docker installed.
 
 4. The response should contain the PDF in byte string format.
 
-## Known issues
+## Clean up
 
-The LaTeX compiler creates auxiliary files with a uniquely created ID in the name, which are currently not cleaned up. For production use, periodic clean-up of these files is recommended, e.g. with the use of Celery or another distributed task queue.
+The LaTeX compiler creates auxiliary files with a uniquely created ID in the name, which are not automatically removed. For production use, it is recommended that you periodically clean up these files. You can do this by running `docker exec -it latex-service /bin/bash` and then running `latexmk -C` (for the auxiliary files) followed by `rm *.tex` for the source files. If you have `cron` on the server, you may want to add the job in `Crontab`, which performs this cleanup once a day. Make sure to change the name of the container name in the command above if it is named differently on your system.
 
 ## Licence
 
