@@ -31,9 +31,6 @@ def handle_request():
     response = Response(pdf, content_type="application/pdf")
     response.headers.set("Content-Disposition", "attachment", filename="test.pdf")
 
-    # TODO: Celery should run a clean-up script to remove additional build artifacts.
-    # os.system("latexmk -C {uuid}.tex")
-
     return response
 
 
