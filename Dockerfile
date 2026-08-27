@@ -6,9 +6,10 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 # Install TeXLive and latexmk
-RUN apt-get update
-RUN apt-get install -y latexmk
-RUN apt-get install -y texlive-latex-extra
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    latexmk \
+    texlive-latex-extra \
+    && rm -rf /var/lib/apt/lists/*
 
 # Copy necessary files
 COPY app.py app.py
