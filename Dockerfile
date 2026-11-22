@@ -1,9 +1,9 @@
 # syntax=docker/dockerfile:1
-FROM python:3.10.12-bookworm
+FROM python:3.15.2-slim-trixie
 
 # Set environment variables
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
 
 # Install TeXLive and latexmk
 RUN apt-get update && apt-get install -y --no-install-recommends \
