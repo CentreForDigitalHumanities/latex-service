@@ -1,14 +1,15 @@
 # syntax=docker/dockerfile:1
-FROM python:3.15.2-slim-trixie
+FROM python:3.10.12-bookworm
 
 # Set environment variables
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
 
 # Install TeXLive and latexmk
-RUN apt-get update
-RUN apt-get install -y latexmk
-RUN apt-get install -y texlive-latex-extra
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    latexmk \
+    texlive-latex-extra \
+    && rm -rf /var/lib/apt/lists/*
 
 # Copy necessary files
 COPY app.py app.py
